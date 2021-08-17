@@ -62,15 +62,50 @@ const leaderBoard = [
 // take user input, validate answer, update score
 for(let i=0; i<quesSet.length; i++){
   if(i===3){
+    if(score>=4){
       console.log(chalk.magenta("You entered Level 2. Let's not make it that easy now \n"));
+    }
+    else{
+      console.log("Sorry! You are not going ahead");
+      break;
+    }
 
   }else if(i===6){
-    console.log(chalk.magenta("You entered Level 3. You are just getting there, think before you pick you answer \n"));
+    if(score>=8){
+      console.log(chalk.magenta("You entered Level 3. You are just getting there, think before you pick you answer \n"));
+    }
+    else{
+      console.log("Sorry! You just missed from entering into the final round");
+      break;
+    }
   }
-  
+
   validateAnswer(i+1, quesSet[i].ques, quesSet[i].ans);
 }
 
+// Print final score
+console.log(chalk.bgBlue(`Yay! Your Final Score is ${score}`));
+
+//Leader board
+let  didIBeat = false;
+let myIndex = 0;
+
+for(let i=0; i<leaderBoard.length; i++){
+  if(score >= leaderBoard[i].score){
+    didIBeat = true;
+    myIndex = i;
+    leaderBoard.slice(myIndex, 0, {name: userName, score});
+    break;
+  }
+}
+
+if(didIBeat){
+  console.log(chalk.bgBlue(`\nWohooo! Congratulations ${userName}! You have climbed up the ranks\n`));
+}
+
+showLeaderboard();
+
+//Utils
 function validateAnswer(quesNo, ques, ans){
   const userAns = readlineSync.keyIn(chalk.cyanBright(`${quesNo}. ${ques} \n`), {limit: '$<a-c>'});
 
@@ -85,11 +120,9 @@ function validateAnswer(quesNo, ques, ans){
   console.log('--------------------------\n');
 } 
 
-// Print final score
-console.log(chalk.bgBlue(`Yay! Your Final Score is ${score}`));
-
-
-console.log(chalk.bgBlack.yellow.bold("\n\nLeaderboard Standings\n"));
-for(let i=0; i< leaderBoard.length; i++){
-  console.log(`${leaderBoard[i].name} : ${leaderBoard[i].score}`);
+function showLeaderboard(leaderBoard){
+  console.log(chalk.bgBlack.yellow.bold("\n\nLeaderboard Standings\n"));
+  for(let i=0; i< leaderBoard.length; i++){
+    console.log(`${leaderBoard[i].name} : ${leaderBoard[i].score}`);
+  }
 }
