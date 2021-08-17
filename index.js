@@ -1,11 +1,14 @@
 const readlineSync = require('readline-sync');
 const chalk = require('chalk');
 
-console.log(chalk.bgBlack.yellow.bold("Wassup lads?? You think you know premier league better? Play the 4-4-2 Quizz\n"));
+console.log(chalk.bgBlack.yellow.bold("Wassup lads?? You think you know premier league better? Play the 4-4-2 Quizz 
+⚽\n"));
 
 const userName = readlineSync.question(chalk.magentaBright('Your name? \n'));
 
-console.log(chalk.yellowBright(`\nHey ${userName}. Time to test your football knowledge!.\n`));
+console.log(chalk.yellowBright(`\nHey ${userName}
+👋. Time to test your football knowledge!
+🤓.\n`));
 
 // Global variables
 let score = 0;
@@ -63,19 +66,20 @@ const leaderBoard = [
 for(let i=0; i<quesSet.length; i++){
   if(i===3){
     if(score>=4){
-      console.log(chalk.magenta("You entered Level 2. Let's not make it that easy now \n"));
+      console.log(chalk.magenta("✅ You entered Level 2. Let's not make it that easy now 
+😉 \n"));
     }
     else{
-      console.log("Sorry! You are not going ahead");
+      console.log("Sorry! You are not going ahead ☹️");
       break;
     }
 
   }else if(i===6){
     if(score>=8){
-      console.log(chalk.magenta("You entered Level 3. You are just getting there, think before you pick you answer \n"));
+      console.log(chalk.magenta("✅ You entered Level 3. You are just getting there 😲, think before you pick you answer... \n"));
     }
     else{
-      console.log("Sorry! You just missed from entering into the final round");
+      console.log("Sorry! You just missed from entering into the final round ☹️");
       break;
     }
   }
@@ -84,7 +88,7 @@ for(let i=0; i<quesSet.length; i++){
 }
 
 // Print final score
-console.log(chalk.bgBlue(`Yay! Your Final Score is ${score}`));
+console.log(chalk.bgBlue(`Yay! Your Final Score is ${score}.`));
 
 //Leader board
 let  didIBeat = false;
@@ -94,16 +98,19 @@ for(let i=0; i<leaderBoard.length; i++){
   if(score >= leaderBoard[i].score){
     didIBeat = true;
     myIndex = i;
-    leaderBoard.slice(myIndex, 0, {name: userName, score});
+    leaderBoard.splice(myIndex, 0, {name: userName, score});
     break;
   }
 }
 
+showLeaderboard(leaderBoard);
+
 if(didIBeat){
-  console.log(chalk.bgBlue(`\nWohooo! Congratulations ${userName}! You have climbed up the ranks\n`));
+  console.log(chalk.yellowBright(`\nWohooo! 
+🎉 Congratulations ${userName}! You have climbed up the ranks 
+🔥\n`));
 }
 
-showLeaderboard();
 
 //Utils
 function validateAnswer(quesNo, ques, ans){
@@ -121,8 +128,8 @@ function validateAnswer(quesNo, ques, ans){
 } 
 
 function showLeaderboard(leaderBoard){
-  console.log(chalk.bgBlack.yellow.bold("\n\nLeaderboard Standings\n"));
-  for(let i=0; i< leaderBoard.length; i++){
+  console.log(chalk.bgBlack.yellow.bold("\n\n🔝 Leaderboard Standings\n"));
+  for(let i=0; i < leaderBoard.length; i++){
     console.log(`${leaderBoard[i].name} : ${leaderBoard[i].score}`);
   }
 }
