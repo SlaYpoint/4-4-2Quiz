@@ -1,14 +1,11 @@
 const readlineSync = require('readline-sync');
 const chalk = require('chalk');
 
-console.log(chalk.bgBlack.yellow.bold("Wassup lads?? You think you know premier league better? Play the 4-4-2 Quizz 
-⚽\n"));
+console.log(chalk.bgBlack.yellow.bold("Wassup lads?? You think you know premier league better? Play the 4-4-2 Quizz ⚽\n"));
 
 const userName = readlineSync.question(chalk.magentaBright('Your name? \n'));
 
-console.log(chalk.yellowBright(`\nHey ${userName}
-👋. Time to test your football knowledge!
-🤓.\n`));
+console.log(chalk.yellowBright(`\nHey ${userName}👋. Time to test your football knowledge!🤓.\n`));
 
 // Global variables
 let score = 0;
@@ -66,8 +63,7 @@ const leaderBoard = [
 for(let i=0; i<quesSet.length; i++){
   if(i===3){
     if(score>=4){
-      console.log(chalk.magenta("✅ You entered Level 2. Let's not make it that easy now 
-😉 \n"));
+      console.log(chalk.magenta("✅ You entered Level 2. Let's not make it that easy now 😉 \n"));
     }
     else{
       console.log("Sorry! You are not going ahead ☹️");
@@ -106,9 +102,7 @@ for(let i=0; i<leaderBoard.length; i++){
 showLeaderboard(leaderBoard);
 
 if(didIBeat){
-  console.log(chalk.yellowBright(`\nWohooo! 
-🎉 Congratulations ${userName}! You have climbed up the ranks 
-🔥\n`));
+  console.log(chalk.yellowBright(`\nWohooo! 🎉 Congratulations ${userName}! You have climbed up the ranks🔥\n`));
 }
 
 
