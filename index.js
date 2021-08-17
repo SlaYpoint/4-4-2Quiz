@@ -56,10 +56,18 @@ const quesSet = [
 const leaderBoard = [
   {name: "Harish", score: 20},
   {name: "Julie", score: 18},
+  {name: "Aman", score: 16}
 ];
 
 // take user input, validate answer, update score
 for(let i=0; i<quesSet.length; i++){
+  if(i===3){
+      console.log(chalk.magenta("You entered Level 2. Let's not make it that easy now \n"));
+
+  }else if(i===6){
+    console.log(chalk.magenta("You entered Level 3. You are just getting there, think before you pick you answer \n"));
+  }
+  
   validateAnswer(i+1, quesSet[i].ques, quesSet[i].ans);
 }
 
