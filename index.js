@@ -79,7 +79,7 @@ function validateAnswer(quesNo, ques, ans){
 
 // Print final score
 console.log(chalk.bgBlue(`Yay! Your Final Score is ${score}`));
-console.log('--------------------------\n');
+
 
 console.log(chalk.bgBlack.yellow.bold("\n\nLeaderboard Standings\n"));
 for(let i=0; i< leaderBoard.length; i++){
