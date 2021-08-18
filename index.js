@@ -123,7 +123,6 @@ function validateAnswer(quesNo, ques, ans){
 
 function showLeaderboard(leaderBoard){
   console.log(chalk.bgBlack.yellow.bold("\n\n🔝 Leaderboard Standings\n"));
-  for(let i=0; i < leaderBoard.length; i++){
-    console.log(`${leaderBoard[i].name} : ${leaderBoard[i].score}`);
-  }
+  
+  console.table(leaderBoard);
 }
