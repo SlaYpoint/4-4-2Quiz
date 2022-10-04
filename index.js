@@ -58,7 +58,23 @@ const quesSet = [
   {
     ques: "Who is the highest ALL-time goal scorer in PL history?\na.Harry Kane\nb.Thierry Henry\nc.Alan Shearer",
     ans: "c"
-  }
+  },
+  {
+    ques: "1996-97. How many points were Middlesbrough deducted for failing to fulfil a fixture against Blackburn in December?\na.Six\nb.One\nc.Three",
+    ans: "c"
+  },
+  {
+    ques: "2001-02. What did Arsenal do in the 2001-02 season that had not been done before in the Premier League?\na.They did not lose an away match all season\nb.They scored 100 goals\nc.They went unbeaten all season",
+    ans: "a"
+  },
+  {
+    ques: "2003-04. Two clubs avoided defeat to Arsenal in the Invincibles season. Manchester United and ...?\na.Newcastle\nb.Portsmouth\nc.Chelsea",
+    ans: "b"
+  },
+  {
+    ques: "2010-11. Who was Roberto Mancini referring to when he said: “We were beaten by a moment of pure genius”?\na.Wayne Rooney\nb.Michael Owen\nc.Paul Scholes",
+    ans: "a"
+  },
 ];
 
 const leaderBoard = [
@@ -81,6 +97,14 @@ for (let i = 0; i < quesSet.length; i++) {
   } else if (i === 6) {
     if (score >= 8) {
       console.log(chalk.magenta("✅ You entered Level 3. You are just getting there 😲, think before you pick you answer... \n"));
+    }
+    else {
+      console.log("Sorry! You are not going ahead ☹️");
+      break;
+    }
+  } else if (i === 12) {
+    if (score >= 16) {
+      console.log(chalk.magenta("✅ You entered Level 4. Things could get hard from here..\n"));
     }
     else {
       console.log("Sorry! You just missed from entering into the final round ☹️");
